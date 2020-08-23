@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue Laracasts</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .color-red, .is-loading{ color: red; }
+        .color-blue { color: blue; }
+    </style>
+</head>
+<body>
+
+<div id="root">
+    
+    <button :title="title">Hover Over Me</button>
+
+    <h1 :class="className">Hello World</h1>
+    <button @click="switchColor">Switch Color</button>
+    <br>
+    <br>
+
+    <button @click="switchIsLoading" :class="{'is-loading': isLoading}">Button</button>
+    <br>
+    <br>
+
+    
+
+    <button @click="switchDisabled" :disabled="isDisabled">Button</button>
+</div>
+
+<script>
+    
+	var app = new Vue({
+        el: '#root',
+        data: {
+            
+            title: 'This is the new title',
+
+            className: "color-red",
+
+            isLoading: true,
+
+            isDisabled: false
+        },
+
+        methods: {
+            switchColor() {
+                this.className = this.className == 'color-red' ? 'color-blue' : 'color-red';
+            },
+            switchIsLoading() {
+                this.isLoading = !this.isLoading;
+            },
+
+            switchDisabled() {
+                this.isDisabled = !this.isDisabled;
+            }
+            
+        }
+
+	})
+
+    
+    
+</script>
+</body>
+</html>
